@@ -72,7 +72,7 @@ class AskFormController extends Controller
         $askForm->update([
             'ask_one' => $request->input('ask_one'),
             'ask_two' => $request->input('ask_two'),
-            'ask_three' => $request->input('ask_four'),
+            'ask_three' => $request->input('ask_three'),
             'ask_four' => $request->input('ask_four')
         ]);
 
