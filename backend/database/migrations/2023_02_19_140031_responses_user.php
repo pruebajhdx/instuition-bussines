@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('favorite_artist');
             $table->string('favorite_place');
             $table->string('favorite_color');
+            $table->string('desc_ask_one');
+            $table->string('desc_ask_two');
+            $table->string('desc_ask_three');
+            $table->string('desc_ask_four');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

@@ -35,18 +35,6 @@ Route::get('profile-images/{filename}', function ($filename) {
 
 Route::get('/ask-form', 'App\Http\Controllers\AskFormController@index');
 
-/*
-Route::middleware('auth:api')->get('/users', function () {
-    if (Auth::user()->role == 'admin') {
-        $users = App\Models\User::with('response')->get();
-        return $users;
-    } else {
-        return response('Unauthorized', 401);
-    }
-}
-);*/
-Route::get('/ask-form', 'App\Http\Controllers\AskFormController@index');
-
 Route::middleware('auth:api')->group(function () {
     Route::post('/ask-form', 'App\Http\Controllers\AskFormController@store');
     Route::put('/ask-form/{id}', 'App\Http\Controllers\AskFormController@update');

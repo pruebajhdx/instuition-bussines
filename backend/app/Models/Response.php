@@ -12,6 +12,10 @@ class Response extends Model
         'favorite_artist',
         'favorite_place',
         'favorite_color',
+        'desc_ask_one',
+        'desc_ask_two',
+        'desc_ask_three',
+        'desc_ask_four',
         'user_id',
     ];
 

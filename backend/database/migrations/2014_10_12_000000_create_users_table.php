@@ -21,10 +21,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('country');
-            //$table->string('favorite_food');
-            //$table->string('favorite_artist');
-            //$table->string('favorite_place');
-            //$table->string('favorite_color');
             $table->string('profile_image');
             $table->rememberToken();
             $table->timestamps();

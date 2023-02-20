@@ -28,6 +28,10 @@ class UserController extends Controller
             'favorite_artist' => 'required|string|max:255',
             'favorite_place' => 'required|string|max:255',
             'favorite_color' => 'required|string|max:255',
+            'desc_ask_one' => 'required|string|max:255',
+            'desc_ask_two' => 'required|string|max:255',
+            'desc_ask_three' => 'required|string|max:255',
+            'desc_ask_four' => 'required|string|max:255',
             'profile_image' => 'required|image|max:500',
         ]);
 
@@ -44,10 +48,6 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->phone = $request->phone;
         $user->country = $request->country;
-        /*$user->favorite_food = $request->favorite_food;
-        $user->favorite_artist = $request->favorite_artist;
-        $user->favorite_place = $request->favorite_place;
-        $user->favorite_color = $request->favorite_color;*/
 
         if ($request->hasFile('profile_image')) {
             $image = $request->file('profile_image');
@@ -62,6 +62,10 @@ class UserController extends Controller
         $response->favorite_artist = $request->favorite_artist;
         $response->favorite_place = $request->favorite_place;
         $response->favorite_color = $request->favorite_color;
+        $response->desc_ask_one = $request->desc_ask_one;
+        $response->desc_ask_two = $request->desc_ask_two;
+        $response->desc_ask_three = $request->desc_ask_three;
+        $response->desc_ask_four = $request->desc_ask_four;
         $response->user_id = $user->id;
         $response->save();
 
@@ -75,8 +79,8 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            /** @var App\Models\User $user **/
             $user = Auth::user();
+            /** @var App\Models\User $user **/
             $user->load('response');
             $token = $user->createToken('Token')->plainTextToken;
             $user->api_token = $token;
